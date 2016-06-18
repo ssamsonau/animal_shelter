@@ -12,6 +12,9 @@ library(caret)
 
 Predict the chance of being adopted for a pet taken to a shelter
 
+__SITE AVAILABLE__ at https://ssamsonau.github.io/animal_shelter/
+__SOURCE CODE__ is available here https://github.com/ssamsonau/animal_shelter
+
 ## Goal and motivations
 
 https://www.kaggle.com/c/shelter-animal-outcomes
