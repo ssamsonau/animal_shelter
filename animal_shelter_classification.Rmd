@@ -12,8 +12,8 @@ library(caret)
 
 Predict the chance of being adopted for a pet taken to a shelter
 
-__SITE AVAILABLE__ at https://ssamsonau.github.io/animal_shelter/
-__SOURCE CODE__ is available here https://github.com/ssamsonau/animal_shelter
+* website is at https://ssamsonau.github.io/animal_shelter/     
+* source code is available here https://github.com/ssamsonau/animal_shelter
 
 ## Goal and motivations
 
@@ -291,49 +291,4 @@ res_rf_all$model$finalModel
 confusionMatrix(res_rp_all$model$finalModel)
 ```
 
-
-```{r, eval = FALSE, echo=F}
-# Make prediction for a certain animal
-Here you can include Rshiny app
-
-#structure
-DF <- read_csv("data/animal/train.csv.gz")
-#View(DF[1, ])
-
-subDF <- DF[1, ]
-
-# prepare data frame for interactive editing (only numeric and factors are allowed)
-is_str <- !sapply(subDF, is.numeric)
-subDF[, is_str] <-  subDF[, is_str] %>%
-  mutate_each(funs(as.factor))
-
-#check
-sapply(subDF, typeof)
-
-# edit an entry interactivelly
-subDF <- edit(subDF)
-
-#convert back to string
-subDF[, is_str] <-  subDF[, is_str] %>%
-  mutate_each(funs(as.character))
-
-
-# can be done better, but fast way
-DF[nrow(DF) +1 , ] <- subDF[1, ]
-
-############### do animal_making_features
-############## do dummyVar
-DF <- na.omit(DF)
-x_ind <- 2:ncol(DF)
-x_data <- DF[, x_ind]
-
-ddd <- dummyVars( form.f , data = x_data, fullRank = T)
-dddDF <- predict(ddd, x_data)
-
-#new_record <- dddDF %>%
-  #filter(n() == )
-
-# do prediction
-predict(res_GLM$model, new_record)
-```
 
