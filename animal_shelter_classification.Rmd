@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE, message=FALSE, eval = T)
 library(caret)
 ```
 
-# Project descriptin
+# Index
 
 Predict the chance of being adopted for a pet taken to a shelter
 
