@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pet adoption classification. (week 4)</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Pet adoption classification. (week 4)">
+  <meta name="generator" content="bookdown 0.0.72 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Pet adoption classification. (week 4)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pet adoption classification. (week 4)" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="making-basic-prediction.html">
+<link rel="next" href="make-prediction-for-a-certain-animal.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="project-description.html"><a href="project-description.html"><i class="fa fa-check"></i><b>1</b> Project description</a><ul>
+<li class="chapter" data-level="1.1" data-path="project-description.html"><a href="project-description.html#goal-and-motivations"><i class="fa fa-check"></i><b>1.1</b> Goal and motivations</a></li>
+<li class="chapter" data-level="1.2" data-path="project-description.html"><a href="project-description.html#getting-data"><i class="fa fa-check"></i><b>1.2</b> Getting Data</a></li>
+<li class="chapter" data-level="1.3" data-path="project-description.html"><a href="project-description.html#load-data"><i class="fa fa-check"></i><b>1.3</b> Load data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html"><i class="fa fa-check"></i><b>2</b> Clean data and do feature engineering</a><ul>
+<li class="chapter" data-level="2.1" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#feature-engineering"><i class="fa fa-check"></i><b>2.1</b> Feature Engineering</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#names"><i class="fa fa-check"></i><b>2.1.1</b> Names</a></li>
+<li class="chapter" data-level="2.1.2" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#breed"><i class="fa fa-check"></i><b>2.1.2</b> Breed</a></li>
+<li class="chapter" data-level="2.1.3" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#color"><i class="fa fa-check"></i><b>2.1.3</b> Color</a></li>
+<li class="chapter" data-level="2.1.4" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#ageuponoutcome"><i class="fa fa-check"></i><b>2.1.4</b> AgeuponOutcome</a></li>
+<li class="chapter" data-level="2.1.5" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#non-linear-features"><i class="fa fa-check"></i><b>2.1.5</b> non-linear features</a></li>
+<li class="chapter" data-level="2.1.6" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#other-predictors"><i class="fa fa-check"></i><b>2.1.6</b> Other predictors</a></li>
+<li class="chapter" data-level="2.1.7" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#convert-factors-to-factors"><i class="fa fa-check"></i><b>2.1.7</b> Convert factors to factors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#dimension"><i class="fa fa-check"></i><b>2.2</b> Dimension</a></li>
+<li class="chapter" data-level="2.3" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#create-binary-outcome"><i class="fa fa-check"></i><b>2.3</b> Create Binary outcome</a></li>
+<li class="chapter" data-level="2.4" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#try-later"><i class="fa fa-check"></i><b>2.4</b> Try later</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html"><i class="fa fa-check"></i><b>3</b> Making basic prediction</a><ul>
+<li class="chapter" data-level="3.1" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#fit-basic-linear-model"><i class="fa fa-check"></i><b>3.1</b> Fit basic linear model</a></li>
+<li class="chapter" data-level="3.2" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#evaluating-linear-model"><i class="fa fa-check"></i><b>3.2</b> Evaluating Linear Model</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#predict-for-one-observation-of-training-data"><i class="fa fa-check"></i><b>3.2.1</b> Predict for one observation of training data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#predict-for-all-the-train-observations"><i class="fa fa-check"></i><b>3.2.2</b> Predict for all the train observations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#roc-curve"><i class="fa fa-check"></i><b>3.2.3</b> ROC Curve</a></li>
+<li class="chapter" data-level="3.2.4" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#plot-get-probabilities"><i class="fa fa-check"></i><b>3.2.4</b> plot, get probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#rpart"><i class="fa fa-check"></i><b>3.3</b> Rpart</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#how-to-train-model-with-different-parameters---how-to-compare"><i class="fa fa-check"></i><b>3.3.1</b> How to train model with different parameters - how to compare</a></li>
+<li class="chapter" data-level="3.3.2" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#boosted-tree"><i class="fa fa-check"></i><b>3.3.2</b> boosted tree</a></li>
+<li class="chapter" data-level="3.3.3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#ada-boost"><i class="fa fa-check"></i><b>3.3.3</b> ADA boost</a></li>
+<li class="chapter" data-level="3.3.4" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#combining-different-models."><i class="fa fa-check"></i><b>3.3.4</b> Combining different models.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="making-prediction-for-all-classes.html"><a href="making-prediction-for-all-classes.html"><i class="fa fa-check"></i><b>4</b> Making prediction for all classes</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="making-prediction-for-all-classes.html"><a href="making-prediction-for-all-classes.html#rpart-1"><i class="fa fa-check"></i><b>4.0.1</b> rpart</a></li>
+<li class="chapter" data-level="4.0.2" data-path="making-prediction-for-all-classes.html"><a href="making-prediction-for-all-classes.html#rf-1"><i class="fa fa-check"></i><b>4.0.2</b> rf</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="make-prediction-for-a-certain-animal.html"><a href="make-prediction-for-a-certain-animal.html"><i class="fa fa-check"></i><b>5</b> Make prediction for a certain animal</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pet adoption classification. (week 4)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="making-prediction-for-all-classes" class="section level1">
+<h1><span class="header-section-number">4</span> Making prediction for all classes</h1>
+<div id="rpart-1" class="section level3">
+<h3><span class="header-section-number">4.0.1</span> rpart</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_rp_all &lt;-<span class="st"> </span><span class="kw">train_lm</span>(DF, <span class="dt">error_est =</span> <span class="st">&quot;cv&quot;</span>, <span class="dt">model =</span> <span class="st">&quot;rpart&quot;</span>, <span class="dt">y_ind =</span> <span class="dv">1</span>, <span class="dt">x_ind =</span> <span class="dv">2</span>:<span class="kw">ncol</span>(DF), <span class="dt">form.f =</span> form.f, <span class="dt">par =</span> T)
+res_rp_all$model
+<span class="kw">confusionMatrix</span>(res_rp_all$model)
+
+<span class="co">#predict on train</span>
+trainPred &lt;-<span class="st"> </span><span class="kw">predict</span>(res_rp_all$model, res_rp_all$train)
+
+<span class="kw">confusionMatrix</span>(trainPred, res_rp_all$train$outcome)</code></pre></div>
+</div>
+<div id="rf-1" class="section level3">
+<h3><span class="header-section-number">4.0.2</span> rf</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res_rf_all &lt;-<span class="st"> </span><span class="kw">train_lm</span>(DF, <span class="dt">error_est =</span> <span class="st">&quot;oob&quot;</span>, <span class="dt">model =</span> <span class="st">&quot;rf&quot;</span>, <span class="dt">y_ind =</span> <span class="dv">1</span>, <span class="dt">x_ind =</span> <span class="dv">2</span>:<span class="kw">ncol</span>(DF), <span class="dt">par =</span> T)
+res_rf_all$model$finalModel</code></pre></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="making-basic-prediction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="make-prediction-for-a-certain-animal.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pet adoption classification. (week 4)</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Pet adoption classification. (week 4)">
+  <meta name="generator" content="bookdown 0.0.72 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Pet adoption classification. (week 4)" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pet adoption classification. (week 4)" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="clean-data-and-do-feature-engineering.html">
+<link rel="next" href="making-prediction-for-all-classes.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="project-description.html"><a href="project-description.html"><i class="fa fa-check"></i><b>1</b> Project description</a><ul>
+<li class="chapter" data-level="1.1" data-path="project-description.html"><a href="project-description.html#goal-and-motivations"><i class="fa fa-check"></i><b>1.1</b> Goal and motivations</a></li>
+<li class="chapter" data-level="1.2" data-path="project-description.html"><a href="project-description.html#getting-data"><i class="fa fa-check"></i><b>1.2</b> Getting Data</a></li>
+<li class="chapter" data-level="1.3" data-path="project-description.html"><a href="project-description.html#load-data"><i class="fa fa-check"></i><b>1.3</b> Load data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html"><i class="fa fa-check"></i><b>2</b> Clean data and do feature engineering</a><ul>
+<li class="chapter" data-level="2.1" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#feature-engineering"><i class="fa fa-check"></i><b>2.1</b> Feature Engineering</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#names"><i class="fa fa-check"></i><b>2.1.1</b> Names</a></li>
+<li class="chapter" data-level="2.1.2" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#breed"><i class="fa fa-check"></i><b>2.1.2</b> Breed</a></li>
+<li class="chapter" data-level="2.1.3" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#color"><i class="fa fa-check"></i><b>2.1.3</b> Color</a></li>
+<li class="chapter" data-level="2.1.4" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#ageuponoutcome"><i class="fa fa-check"></i><b>2.1.4</b> AgeuponOutcome</a></li>
+<li class="chapter" data-level="2.1.5" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#non-linear-features"><i class="fa fa-check"></i><b>2.1.5</b> non-linear features</a></li>
+<li class="chapter" data-level="2.1.6" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#other-predictors"><i class="fa fa-check"></i><b>2.1.6</b> Other predictors</a></li>
+<li class="chapter" data-level="2.1.7" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#convert-factors-to-factors"><i class="fa fa-check"></i><b>2.1.7</b> Convert factors to factors</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#dimension"><i class="fa fa-check"></i><b>2.2</b> Dimension</a></li>
+<li class="chapter" data-level="2.3" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#create-binary-outcome"><i class="fa fa-check"></i><b>2.3</b> Create Binary outcome</a></li>
+<li class="chapter" data-level="2.4" data-path="clean-data-and-do-feature-engineering.html"><a href="clean-data-and-do-feature-engineering.html#try-later"><i class="fa fa-check"></i><b>2.4</b> Try later</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html"><i class="fa fa-check"></i><b>3</b> Making basic prediction</a><ul>
+<li class="chapter" data-level="3.1" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#fit-basic-linear-model"><i class="fa fa-check"></i><b>3.1</b> Fit basic linear model</a></li>
+<li class="chapter" data-level="3.2" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#evaluating-linear-model"><i class="fa fa-check"></i><b>3.2</b> Evaluating Linear Model</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#predict-for-one-observation-of-training-data"><i class="fa fa-check"></i><b>3.2.1</b> Predict for one observation of training data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#predict-for-all-the-train-observations"><i class="fa fa-check"></i><b>3.2.2</b> Predict for all the train observations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#roc-curve"><i class="fa fa-check"></i><b>3.2.3</b> ROC Curve</a></li>
+<li class="chapter" data-level="3.2.4" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#plot-get-probabilities"><i class="fa fa-check"></i><b>3.2.4</b> plot, get probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#rpart"><i class="fa fa-check"></i><b>3.3</b> Rpart</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#how-to-train-model-with-different-parameters---how-to-compare"><i class="fa fa-check"></i><b>3.3.1</b> How to train model with different parameters - how to compare</a></li>
+<li class="chapter" data-level="3.3.2" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#boosted-tree"><i class="fa fa-check"></i><b>3.3.2</b> boosted tree</a></li>
+<li class="chapter" data-level="3.3.3" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#ada-boost"><i class="fa fa-check"></i><b>3.3.3</b> ADA boost</a></li>
+<li class="chapter" data-level="3.3.4" data-path="making-basic-prediction.html"><a href="making-basic-prediction.html#combining-different-models."><i class="fa fa-check"></i><b>3.3.4</b> Combining different models.</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="making-prediction-for-all-classes.html"><a href="making-prediction-for-all-classes.html"><i class="fa fa-check"></i><b>4</b> Making prediction for all classes</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="making-prediction-for-all-classes.html"><a href="making-prediction-for-all-classes.html#rpart-1"><i class="fa fa-check"></i><b>4.0.1</b> rpart</a></li>
+<li class="chapter" data-level="4.0.2" data-path="making-prediction-for-all-classes.html"><a href="making-prediction-for-all-classes.html#rf-1"><i class="fa fa-check"></i><b>4.0.2</b> rf</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="make-prediction-for-a-certain-animal.html"><a href="make-prediction-for-a-certain-animal.html"><i class="fa fa-check"></i><b>5</b> Make prediction for a certain animal</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Pet adoption classification. (week 4)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="making-basic-prediction" class="section level1">
+<h1><span class="header-section-number">3</span> Making basic prediction</h1>
+<ul>
+<li>Write a function “train_lm”. We can use this function with different parameters, keeping Rmd clean</li>
+<li>Source it and use it. Use default values in function</li>
+<li>Learn to do debuging in R</li>
+</ul>
+<div id="fit-basic-linear-model" class="section level2">
+<h2><span class="header-section-number">3.1</span> Fit basic linear model</h2>
+<p>Prepare a formula for interaction terms if needed</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">incl_var &lt;-<span class="st"> &quot;(AnimalType + PopName + BreedSH + BreedL + BreedD + BreedMix + Breed2)&quot;</span>
+
+<span class="kw">library</span>(stringr)
+form &lt;-<span class="st"> </span><span class="kw">str_c</span>(<span class="st">&quot;~ &quot;</span> ,  <span class="kw">str_c</span>(<span class="kw">names</span>(DF_B)[-<span class="dv">1</span>], <span class="dt">collapse =</span> <span class="st">&quot; + &quot;</span>), 
+             <span class="st">&quot;+ AgeOnOutcome:&quot;</span>, incl_var,
+             <span class="st">&quot;+ AgeOnOutcome2:&quot;</span>, incl_var,
+             <span class="st">&quot;+ AgeOnOutcome3:&quot;</span>, incl_var,
+             <span class="st">&quot;+ AgeOnOutcome12:&quot;</span>, incl_var,
+             <span class="st">&quot;+ AgeOnOutcome13:&quot;</span>, incl_var) 
+form.f &lt;-<span class="st"> </span><span class="kw">as.formula</span>(form)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;scripts/train_lm_4.R&quot;</span>)
+<span class="co">#debugsource(&quot;scripts/train_lm_4.R&quot;)</span>
+
+res_LM &lt;-<span class="st"> </span><span class="kw">train_lm</span>(DF_B, <span class="dt">error_est =</span> <span class="st">&quot;none&quot;</span>, <span class="dt">model =</span> <span class="st">&quot;glm&quot;</span>, 
+                   <span class="dt">y_ind =</span> <span class="dv">1</span>, <span class="dt">x_ind =</span> <span class="dv">2</span>:<span class="kw">ncol</span>(DF),   
+                   <span class="dt">form.f =</span> form.f)
+<span class="kw">names</span>(res_LM)</code></pre></div>
+</div>
+<div id="evaluating-linear-model" class="section level2">
+<h2><span class="header-section-number">3.2</span> Evaluating Linear Model</h2>
+<div id="predict-for-one-observation-of-training-data" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Predict for one observation of training data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># LEt us take first record in test as an example</span>
+<span class="kw">View</span>(res_LM$train[<span class="dv">1</span>, ])
+
+<span class="kw">predict</span>(res_LM$model, res_LM$train[<span class="dv">1</span>, ])
+
+<span class="co">#Predicted Probability</span>
+<span class="kw">predict</span>(res_LM$model, res_LM$train[<span class="dv">1</span>, ] , <span class="dt">type =</span> <span class="st">&quot;prob&quot;</span>)
+
+<span class="co">#actual::</span>
+res_LM$train[<span class="dv">1</span>, <span class="st">&quot;outcome&quot;</span>]</code></pre></div>
+</div>
+<div id="predict-for-all-the-train-observations" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Predict for all the train observations</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trainPred &lt;-<span class="st"> </span><span class="kw">predict</span>(res_LM$model, res_LM$train)
+
+<span class="kw">confusionMatrix</span>(trainPred, res_LM$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)
+
+<span class="co"># Predicted probabilities</span>
+trainPred &lt;-<span class="st"> </span><span class="kw">predict</span>(res_LM$model, res_LM$train, <span class="dt">type =</span> <span class="st">&quot;prob&quot;</span>)</code></pre></div>
+</div>
+<div id="roc-curve" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> ROC Curve</h3>
+<p>ROC curve is Sensitivity vs Specificity for different cut-off points. (If x axis goes from 0to1 vs 1to0, then Sensit vs 1-Spec)</p>
+<p>Each point on the ROC curve represents a sensitivity/specificity pair corresponding to a particular decision threshold. The closer the ROC curve is to the upper left corner, the higher the overall accuracy of the test.</p>
+<p><a href="http://topepo.github.io/caret/other.html" class="uri">http://topepo.github.io/caret/other.html</a></p>
+</div>
+<div id="plot-get-probabilities" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> plot, get probabilities</h3>
+<p>Function for drawing ROC curve and calculating “best cut-off</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;scripts/make_ROC_curve_4.R&quot;</span>)
+ret &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_LM)
+#### here auc is 0.831
+best.cut.off &lt;&lt;-<span class="st"> </span>ret$best.cut.off
+trainPred &lt;&lt;-<span class="st"> </span>ret$trainPred</code></pre></div>
+<p>Interpretation: * We want to accept all those who has a chance to be adopted. We want to see high sensitivity algorithm. * We want to reject all those who has a chance to be not-adopted. We want to see high selectivity algorithm.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span>best.cut.off, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
+                res_LM$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)
+
+<span class="co"># compare to default 0.5</span>
+<span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span><span class="fl">0.5</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
+                res_LM$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)
+
+<span class="co"># compare to default 0.9 - look at Specificity</span>
+<span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span><span class="fl">0.9</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
+                res_LM$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="rpart" class="section level2">
+<h2><span class="header-section-number">3.3</span> Rpart</h2>
+<ul>
+<li>no need to scale data for any tree models</li>
+</ul>
+<div id="how-to-train-model-with-different-parameters---how-to-compare" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> How to train model with different parameters - how to compare</h3>
+<p>Either use Accuracy, or Kappa, or ROC (AUC), or distance to best model…</p>
+<ul>
+<li><a href="http://appliedpredictivemodeling.com/blog/2014/2/1/lw6har9oewknvus176q4o41alqw2ow" class="uri">http://appliedpredictivemodeling.com/blog/2014/2/1/lw6har9oewknvus176q4o41alqw2ow</a></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change parameters in train_lm file for AUC and parameter grid</span>
+<span class="kw">source</span>(<span class="st">&quot;scripts/train_lm_4.R&quot;</span>)
+res_rp &lt;-<span class="st"> </span><span class="kw">train_lm</span>(DF_B, <span class="dt">error_est =</span> <span class="st">&quot;cv&quot;</span>, <span class="dt">model =</span> <span class="st">&quot;rpart&quot;</span>, 
+                   <span class="dt">y_ind =</span> <span class="dv">1</span>, <span class="dt">x_ind =</span> <span class="dv">2</span>:<span class="kw">ncol</span>(DF_B), <span class="dt">par =</span> T, 
+                   <span class="dt">form.f =</span> form.f)
+res_rp$model
+<span class="kw">confusionMatrix</span>(res_rp$model)
+
+<span class="co"># ROC </span>
+ret &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_rp)
+#### here auc is 0.845
+best.cut.off &lt;&lt;-<span class="st"> </span>ret$best.cut.off
+trainPred &lt;&lt;-<span class="st"> </span>ret$trainPred
+
+<span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span>best.cut.off, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
+                res_rp$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)</code></pre></div>
+<div id="rf" class="section level4">
+<h4><span class="header-section-number">3.3.1.1</span> RF</h4>
+<ul>
+<li>does not overfit while number of trees is large.</li>
+<li>trees ansambles trained independently can be combined</li>
+<li>does auto feature selection. Can be used for cases n &lt; p (n of observ. less than numb of predic.s)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change parameters in train_lm file for AUC and parameter grid</span>
+<span class="kw">source</span>(<span class="st">&quot;scripts/train_lm_4.R&quot;</span>)
+res_rf &lt;-<span class="st"> </span><span class="kw">train_lm</span>(DF_B, <span class="dt">error_est =</span> <span class="st">&quot;oob&quot;</span>, <span class="dt">model =</span> <span class="st">&quot;rf&quot;</span>, 
+                   <span class="dt">y_ind =</span> <span class="dv">1</span>, <span class="dt">x_ind =</span> <span class="dv">2</span>:<span class="kw">ncol</span>(DF_B), <span class="dt">par =</span> T, 
+                   <span class="dt">form.f =</span> form.f)
+
+res_rf$model$finalModel
+
+## See how number of trees affects Error
+<span class="kw">plot</span>(res_rf$model$finalModel)
+
+<span class="co"># ROC </span>
+ret &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_rf)
+#### here auc is 0.845
+best.cut.off &lt;&lt;-<span class="st"> </span>ret$best.cut.off
+trainPred &lt;&lt;-<span class="st"> </span>ret$trainPred
+
+<span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span>best.cut.off, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
+                res_rf$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="boosted-tree" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> boosted tree</h3>
+<ul>
+<li>can perform better than rf</li>
+<li>slower to learn</li>
+<li>can overfit for large number of trees.</li>
+</ul>
+</div>
+<div id="ada-boost" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> ADA boost</h3>
+<ul>
+<li>will do boosted tree model + will change weigth to misclassified classes adaptivelly. Helps for unbalanced classes situation etc.</li>
+</ul>
+<div id="resapling-unbalanced-classes" class="section level4">
+<h4><span class="header-section-number">3.3.3.1</span> Resapling Unbalanced classes</h4>
+<p>Other approach to unbalanced classes - resampling * <a href="http://topepo.github.io/caret/sampling.html" class="uri">http://topepo.github.io/caret/sampling.html</a></p>
+</div>
+<div id="svm" class="section level4">
+<h4><span class="header-section-number">3.3.3.2</span> SVM</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># change parameters in train_lm file for AUC and parameter grid</span>
+<span class="kw">source</span>(<span class="st">&quot;scripts/train_lm_4.R&quot;</span>)
+res_svm &lt;-<span class="st"> </span><span class="kw">train_lm</span>(DF_B, <span class="dt">error_est =</span> <span class="st">&quot;cv&quot;</span>, <span class="dt">model =</span> <span class="st">&quot;svmLinear&quot;</span>, 
+                   <span class="dt">y_ind =</span> <span class="dv">1</span>, <span class="dt">x_ind =</span> <span class="dv">2</span>:<span class="kw">ncol</span>(DF_B), <span class="dt">par =</span> T,
+                   <span class="dt">form.f =</span> form.f)
+
+res_svm$model
+res_svm$model$finalModel</code></pre></div>
+<p>one-vs-all (all-pair) approach for many classes</p>
+</div>
+<div id="other-models-implemented-in-caret" class="section level4">
+<h4><span class="header-section-number">3.3.3.3</span> Other models implemented in caret</h4>
+<ul>
+<li><a href="https://topepo.github.io/caret/modelList.html" class="uri">https://topepo.github.io/caret/modelList.html</a></li>
+</ul>
+</div>
+</div>
+<div id="combining-different-models." class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Combining different models.</h3>
+<p>GAM - general additive models. Caret - combining models. ansamble models</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="clean-data-and-do-feature-engineering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="making-prediction-for-all-classes.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
