@@ -5,7 +5,7 @@ site: bookdown::bookdown_site
 ---
 ```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, eval = T)
-library(caret)
+library(caret); library(stringr); library(dplyr)
 ```
 
 # Index
@@ -27,7 +27,8 @@ Data are from here https://www.kaggle.com/c/shelter-animal-outcomes
 ## Load data
 
 ```{r}
-#setwd("week4/site")
+if(! str_detect(getwd(), "week4")) setwd("week4")
+if(! str_detect(getwd(), "animal_shelter")) setwd("animal_shelter")
 ```
 
 
@@ -270,7 +271,7 @@ Caret - combining models. ansamble models
 
 ```{r, eval = F}
 use_formula = TRUE
-DF_for_prep <- DF # use all outcomes
+DF_for_prep <- DF_features # use all outcomes
 ```
 
 ```{r, eval = T}
@@ -289,6 +290,14 @@ confusionMatrix(res_rp_all$model)
 res_rf_all <- train_Kappa(df_train, error_est = "oob", model = "rf", par = T)
 res_rf_all$model$finalModel
 confusionMatrix(res_rp_all$model$finalModel)
+```
+
+# Sample prediction
+
+Let us do prediction for an animal
+
+```{r}
+knitr::spin_child("scripts/prediction.R") 
 ```
 
 

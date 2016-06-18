@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="traning-and-evaluating-a-model.html">
-
+<link rel="next" href="sample-prediction.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -164,6 +164,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.0.9" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#if-needed-center-and-scale-or-range-0-to-1-1"><i class="fa fa-check"></i><b>4.0.9</b> If needed Center and scale, or range (0 to 1)</a></li>
 <li class="chapter" data-level="4.0.10" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#rf-1"><i class="fa fa-check"></i><b>4.0.10</b> rf</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="sample-prediction.html"><a href="sample-prediction.html"><i class="fa fa-check"></i><b>5</b> Sample prediction</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="sample-prediction.html"><a href="sample-prediction.html#interactive-editing-of-not-using-shiny"><i class="fa fa-check"></i><b>5.0.1</b> Interactive editing, of not using Shiny</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -186,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="rpart-1" class="section level3">
 <h3><span class="header-section-number">4.0.1</span> rpart</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">use_formula =<span class="st"> </span><span class="ot">TRUE</span>
-DF_for_prep &lt;-<span class="st"> </span>DF <span class="co"># use all outcomes</span></code></pre></div>
+DF_for_prep &lt;-<span class="st"> </span>DF_features <span class="co"># use all outcomes</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">spin_child</span>(<span class="st">&quot;scripts/Pre_process_data.R&quot;</span>)  </code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#knitr::opts_chunk$set(echo = TRUE, eval = FALSE)</span></code></pre></div>
 <ul>
@@ -249,7 +252,14 @@ x_data &lt;-<span class="st"> </span>x_data[,-highlyCorDescr]</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">comboInfo &lt;-<span class="st"> </span><span class="kw">findLinearCombos</span>(x_data)
 
 if(<span class="kw">length</span>(comboInfo$remove) &gt;<span class="st"> </span><span class="dv">0</span>) 
-  x_data &lt;-<span class="st"> </span>x_data[, -comboInfo$remove]</code></pre></div>
+  x_data &lt;-<span class="st"> </span>x_data[, -comboInfo$remove]
+
+if(<span class="kw">exists</span>(<span class="st">&quot;for_pred&quot;</span>)){
+  x_data_pred &lt;-<span class="st"> </span>x_data[<span class="kw">nrow</span>(x_data), ]
+  y_data_pred &lt;-<span class="st"> </span>y_data[<span class="kw">nrow</span>(x_data), ]
+  x_data &lt;-<span class="st"> </span>x_data[-<span class="kw">nrow</span>(x_data), ]
+  y_data &lt;-<span class="st"> </span>y_data[-<span class="kw">nrow</span>(x_data), ]
+}</code></pre></div>
 </div>
 <div id="split-data-to-train-and-test-set-1" class="section level3">
 <h3><span class="header-section-number">4.0.8</span> Split data to train and test set</h3>
@@ -292,8 +302,8 @@ res_rf_all$model$finalModel
           </div>
         </div>
       </div>
-<a href="traning-and-evaluating-a-model.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="traning-and-evaluating-a-model.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sample-prediction.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

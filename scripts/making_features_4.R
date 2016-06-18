@@ -6,13 +6,14 @@
 #' ---
 #knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 #' to run use rmarkdown::render("data_preparation_4.R") - or just press "compile notebook" button in Rstudio
-
-#+ Clean_data, include=FALSE
+#+
+# original data
+str(DF_orig)
 library(dplyr)
 # Not informative predictors
 DF <- DF_orig %>%
   select(-AnimalID, -DateTime)
-str(DF)
+#str(DF)
 
 #' Strings will be converted to factor levels, and to dummy var. 
 #' In order to eliminate some errors, just replacing here all symbols by _
@@ -65,7 +66,7 @@ table(DF$PopName)
 #' ### Breed
 #+
 length(unique(DF$Breed))
-head(DF$Breed)
+#head(DF$Breed)
 
 DF <- DF %>%
   mutate(BreedSH = factor( str_detect(Breed, "Shorthair")) ) %>%
@@ -81,7 +82,7 @@ table(DF$BreedD)
 table(DF$BreedMix)
 table(DF$Breed2)
 
-head(DF)
+#head(DF)
 
 #' ### Color
 #+
@@ -171,4 +172,7 @@ DF_binary <- DF_features %>%
 # because TRUE and FALSE can't be names of col.
 
 #View(DF_binary)
+#final data frame
+#+
+str(DF_binary)
 table(DF_binary$OutcomeType)

@@ -75,6 +75,13 @@ comboInfo <- findLinearCombos(x_data)
 if(length(comboInfo$remove) > 0) 
   x_data <- x_data[, -comboInfo$remove]
 
+if(exists("for_pred")){
+  x_data_pred <- x_data[nrow(x_data), ]
+  y_data_pred <- y_data[nrow(x_data), ]
+  x_data <- x_data[-nrow(x_data), ]
+  y_data <- y_data[-nrow(x_data), ]
+}
+  
 
 #' ###  Split data to train and test set
 trainIndex <- createDataPartition(y_data$outcome, p = .8, list = F)
