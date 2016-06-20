@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="clean-data-and-do-feature-engineering.html">
-<link rel="next" href="training-a-model-for-all-classes.html">
+<link rel="next" href="training-a-model-for-all-classes-try-it-yourselves.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,17 +152,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.7.4" data-path="traning-and-evaluating-a-model.html"><a href="traning-and-evaluating-a-model.html#combining-different-models."><i class="fa fa-check"></i><b>3.7.4</b> Combining different models.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html"><i class="fa fa-check"></i><b>4</b> Training a model for all classes</a><ul>
-<li class="chapter" data-level="4.0.1" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#rpart-1"><i class="fa fa-check"></i><b>4.0.1</b> rpart</a></li>
-<li class="chapter" data-level="4.0.2" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#creating-dummy-variables-1"><i class="fa fa-check"></i><b>4.0.2</b> Creating dummy variables</a></li>
-<li class="chapter" data-level="4.0.3" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#deal-with-na-1"><i class="fa fa-check"></i><b>4.0.3</b> Deal with NA</a></li>
-<li class="chapter" data-level="4.0.4" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#split-data-to-x-and-y-1"><i class="fa fa-check"></i><b>4.0.4</b> Split data to x and y</a></li>
-<li class="chapter" data-level="4.0.5" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#create-dummmy-variables-1"><i class="fa fa-check"></i><b>4.0.5</b> Create dummmy variables</a></li>
-<li class="chapter" data-level="4.0.6" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#check-for-correlated-predictors-1"><i class="fa fa-check"></i><b>4.0.6</b> Check for correlated predictors</a></li>
-<li class="chapter" data-level="4.0.7" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#check-for-linear-dependencies-1"><i class="fa fa-check"></i><b>4.0.7</b> Check for linear dependencies</a></li>
-<li class="chapter" data-level="4.0.8" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#split-data-to-train-and-test-set-1"><i class="fa fa-check"></i><b>4.0.8</b> Split data to train and test set</a></li>
-<li class="chapter" data-level="4.0.9" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#if-needed-center-and-scale-or-range-0-to-1-1"><i class="fa fa-check"></i><b>4.0.9</b> If needed Center and scale, or range (0 to 1)</a></li>
-<li class="chapter" data-level="4.0.10" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#rf-1"><i class="fa fa-check"></i><b>4.0.10</b> rf</a></li>
+<li class="chapter" data-level="4" data-path="training-a-model-for-all-classes-try-it-yourselves.html"><a href="training-a-model-for-all-classes-try-it-yourselves.html"><i class="fa fa-check"></i><b>4</b> Training a model for all classes - try it yourselves</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="training-a-model-for-all-classes-try-it-yourselves.html"><a href="training-a-model-for-all-classes-try-it-yourselves.html#rpart-1"><i class="fa fa-check"></i><b>4.0.1</b> rpart</a></li>
+<li class="chapter" data-level="4.0.2" data-path="training-a-model-for-all-classes-try-it-yourselves.html"><a href="training-a-model-for-all-classes-try-it-yourselves.html#rf-1"><i class="fa fa-check"></i><b>4.0.2</b> rf</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sample-prediction.html"><a href="sample-prediction.html"><i class="fa fa-check"></i><b>5</b> Sample prediction</a><ul>
 <li class="chapter" data-level="5.0.1" data-path="sample-prediction.html"><a href="sample-prediction.html#interactive-editing-of-not-using-shiny"><i class="fa fa-check"></i><b>5.0.1</b> Interactive editing, of not using Shiny</a></li>
@@ -338,7 +330,7 @@ df_test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x_data_
 ## Levels: no yes</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(res_GLM$model, df_train[<span class="dv">1</span>, ] , <span class="dt">type =</span> <span class="st">&quot;prob&quot;</span>) <span class="co">#Predicted Probability</span></code></pre></div>
 <pre><code>##          no       yes
-## 1 0.4619147 0.5380853</code></pre>
+## 1 0.4553696 0.5446304</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df_train[<span class="dv">1</span>, <span class="st">&quot;outcome&quot;</span>]  <span class="co">#actual</span></code></pre></div>
 <pre><code>## [1] &quot;no&quot;</code></pre>
 </div>
@@ -350,25 +342,25 @@ df_test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(x_data_
 ## 
 ##           Reference
 ## Prediction   no  yes
-##        no  9321 2052
-##        yes 3432 6564
+##        no  9365 2109
+##        yes 3388 6507
 ##                                           
-##                Accuracy : 0.7434          
-##                  95% CI : (0.7375, 0.7492)
+##                Accuracy : 0.7428          
+##                  95% CI : (0.7368, 0.7486)
 ##     No Information Rate : 0.5968          
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.4802          
+##                   Kappa : 0.478           
 ##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
 ##                                           
-##             Sensitivity : 0.7618          
-##             Specificity : 0.7309          
-##          Pos Pred Value : 0.6567          
-##          Neg Pred Value : 0.8196          
+##             Sensitivity : 0.7552          
+##             Specificity : 0.7343          
+##          Pos Pred Value : 0.6576          
+##          Neg Pred Value : 0.8162          
 ##              Prevalence : 0.4032          
-##          Detection Rate : 0.3072          
-##    Detection Prevalence : 0.4678          
-##       Balanced Accuracy : 0.7464          
+##          Detection Rate : 0.3045          
+##    Detection Prevalence : 0.4631          
+##       Balanced Accuracy : 0.7448          
 ##                                           
 ##        &#39;Positive&#39; Class : yes             
 ## </code></pre>
@@ -465,17 +457,17 @@ trainPred &lt;-<span class="st"> </span><span class="kw">predict</span>(res_GLM$
   <span class="kw">list</span>(<span class="dt">best.cut.off =</span> best.cut.off, <span class="dt">trainPred =</span> trainPred, <span class="dt">auc =</span> Auc)
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">roc_GLM &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_GLM, df_train)</code></pre></div>
-<pre><code>## Area under the curve: 0.8282
+<pre><code>## Area under the curve: 0.8278
 ## Source: local data frame [2 x 4]
 ## 
 ##   pr_threshold     metrics     value    sumSS
 ##          (dbl)       (chr)     (dbl)    (dbl)
-## 1    0.3924277 sensitivity 0.8862581 1.502505
-## 2    0.3924277 specificity 0.6162472 1.502505</code></pre>
+## 1    0.3686401 sensitivity 0.9032033 1.500631
+## 2    0.3686401 specificity 0.5974281 1.500631</code></pre>
 <p><img src="animal_shelter_classification_files/figure-html/unnamed-chunk-12-1.png" /><!-- --></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">best.cut.off &lt;&lt;-<span class="st"> </span>roc_GLM$best.cut.off
-trainPred &lt;&lt;-<span class="st"> </span>roc_GLM$trainPred</code></pre></div>
-<p>here Area under the curve (AUC) is 0.8281709</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">best.cut.off &lt;-<span class="st"> </span>roc_GLM$best.cut.off
+trainPred &lt;-<span class="st"> </span>roc_GLM$trainPred</code></pre></div>
+<p>here Area under the curve (AUC) is 0.8277544</p>
 <p>Interpretation: * We want to accept all those who has a chance to be adopted. We want to see high sensitivity algorithm. * We want to reject all those who has a chance to be not-adopted. We want to see high selectivity algorithm.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span>best.cut.off, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
                 df_train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)</code></pre></div>
@@ -483,25 +475,25 @@ trainPred &lt;&lt;-<span class="st"> </span>roc_GLM$trainPred</code></pre></div>
 ## 
 ##           Reference
 ## Prediction   no  yes
-##        no  7859  980
-##        yes 4894 7636
+##        no  7619  834
+##        yes 5134 7782
 ##                                           
-##                Accuracy : 0.7251          
-##                  95% CI : (0.7191, 0.7311)
+##                Accuracy : 0.7207          
+##                  95% CI : (0.7146, 0.7267)
 ##     No Information Rate : 0.5968          
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.468           
+##                   Kappa : 0.4631          
 ##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
 ##                                           
-##             Sensitivity : 0.8863          
-##             Specificity : 0.6162          
-##          Pos Pred Value : 0.6094          
-##          Neg Pred Value : 0.8891          
+##             Sensitivity : 0.9032          
+##             Specificity : 0.5974          
+##          Pos Pred Value : 0.6025          
+##          Neg Pred Value : 0.9013          
 ##              Prevalence : 0.4032          
-##          Detection Rate : 0.3573          
-##    Detection Prevalence : 0.5864          
-##       Balanced Accuracy : 0.7513          
+##          Detection Rate : 0.3642          
+##    Detection Prevalence : 0.6044          
+##       Balanced Accuracy : 0.7503          
 ##                                           
 ##        &#39;Positive&#39; Class : yes             
 ## </code></pre>
@@ -512,25 +504,25 @@ trainPred &lt;&lt;-<span class="st"> </span>roc_GLM$trainPred</code></pre></div>
 ## 
 ##           Reference
 ## Prediction   no  yes
-##        no  9321 2052
-##        yes 3432 6564
+##        no  9365 2109
+##        yes 3388 6507
 ##                                           
-##                Accuracy : 0.7434          
-##                  95% CI : (0.7375, 0.7492)
+##                Accuracy : 0.7428          
+##                  95% CI : (0.7368, 0.7486)
 ##     No Information Rate : 0.5968          
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.4802          
+##                   Kappa : 0.478           
 ##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
 ##                                           
-##             Sensitivity : 0.7618          
-##             Specificity : 0.7309          
-##          Pos Pred Value : 0.6567          
-##          Neg Pred Value : 0.8196          
+##             Sensitivity : 0.7552          
+##             Specificity : 0.7343          
+##          Pos Pred Value : 0.6576          
+##          Neg Pred Value : 0.8162          
 ##              Prevalence : 0.4032          
-##          Detection Rate : 0.3072          
-##    Detection Prevalence : 0.4678          
-##       Balanced Accuracy : 0.7464          
+##          Detection Rate : 0.3045          
+##    Detection Prevalence : 0.4631          
+##       Balanced Accuracy : 0.7448          
 ##                                           
 ##        &#39;Positive&#39; Class : yes             
 ## </code></pre>
@@ -541,25 +533,25 @@ trainPred &lt;&lt;-<span class="st"> </span>roc_GLM$trainPred</code></pre></div>
 ## 
 ##           Reference
 ## Prediction    no   yes
-##        no  12749  8608
-##        yes     4     8
+##        no  12749  8610
+##        yes     4     6
 ##                                           
-##                Accuracy : 0.597           
-##                  95% CI : (0.5904, 0.6036)
+##                Accuracy : 0.5969          
+##                  95% CI : (0.5903, 0.6035)
 ##     No Information Rate : 0.5968          
-##     P-Value [Acc &gt; NIR] : 0.4807          
+##     P-Value [Acc &gt; NIR] : 0.4918          
 ##                                           
-##                   Kappa : 7e-04           
+##                   Kappa : 5e-04           
 ##  Mcnemar&#39;s Test P-Value : &lt;2e-16          
 ##                                           
-##             Sensitivity : 0.0009285       
+##             Sensitivity : 0.0006964       
 ##             Specificity : 0.9996863       
-##          Pos Pred Value : 0.6666667       
-##          Neg Pred Value : 0.5969471       
+##          Pos Pred Value : 0.6000000       
+##          Neg Pred Value : 0.5968912       
 ##              Prevalence : 0.4032009       
-##          Detection Rate : 0.0003744       
-##    Detection Prevalence : 0.0005616       
-##       Balanced Accuracy : 0.5003074       
+##          Detection Rate : 0.0002808       
+##    Detection Prevalence : 0.0004680       
+##       Balanced Accuracy : 0.5001914       
 ##                                           
 ##        &#39;Positive&#39; Class : yes             
 ## </code></pre>
@@ -620,19 +612,19 @@ res_rp$model
 ##  
 ##           Reference
 ## Prediction   no  yes
-##        no  50.1 17.4
-##        yes  9.6 22.9
+##        no  50.7 17.1
+##        yes  9.0 23.2
 ##                             
-##  Accuracy (average) : 0.7299</code></pre>
+##  Accuracy (average) : 0.7392</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ROC </span>
 roc_rp &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_rp, df_train)</code></pre></div>
-<pre><code>## Area under the curve: 0.8061
+<pre><code>## Area under the curve: 0.8062
 ## Source: local data frame [2 x 4]
 ## 
 ##   pr_threshold     metrics     value    sumSS
 ##          (dbl)       (chr)     (dbl)    (dbl)
-## 1    0.4196767 sensitivity 0.7867920 1.463417
-## 2    0.4196767 specificity 0.6766251 1.463417</code></pre>
+## 1    0.4227062 sensitivity 0.7894615 1.464597
+## 2    0.4227062 specificity 0.6751353 1.464597</code></pre>
 <p><img src="animal_shelter_classification_files/figure-html/unnamed-chunk-17-1.png" /><!-- --></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">best.cut.off &lt;&lt;-<span class="st"> </span>roc_rp$best.cut.off
 trainPred &lt;&lt;-<span class="st"> </span>roc_rp$trainPred
@@ -643,31 +635,31 @@ trainPred &lt;&lt;-<span class="st"> </span>roc_rp$trainPred
 ## 
 ##           Reference
 ## Prediction   no  yes
-##        no  8629 1837
-##        yes 4124 6779
-##                                          
-##                Accuracy : 0.721          
-##                  95% CI : (0.715, 0.7271)
-##     No Information Rate : 0.5968         
-##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
-##                                          
-##                   Kappa : 0.4443         
-##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16      
-##                                          
-##             Sensitivity : 0.7868         
-##             Specificity : 0.6766         
-##          Pos Pred Value : 0.6218         
-##          Neg Pred Value : 0.8245         
-##              Prevalence : 0.4032         
-##          Detection Rate : 0.3172         
-##    Detection Prevalence : 0.5102         
-##       Balanced Accuracy : 0.7317         
-##                                          
-##        &#39;Positive&#39; Class : yes            
+##        no  8610 1814
+##        yes 4143 6802
+##                                           
+##                Accuracy : 0.7212          
+##                  95% CI : (0.7152, 0.7272)
+##     No Information Rate : 0.5968          
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.4451          
+##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
+##                                           
+##             Sensitivity : 0.7895          
+##             Specificity : 0.6751          
+##          Pos Pred Value : 0.6215          
+##          Neg Pred Value : 0.8260          
+##              Prevalence : 0.4032          
+##          Detection Rate : 0.3183          
+##    Detection Prevalence : 0.5122          
+##       Balanced Accuracy : 0.7323          
+##                                           
+##        &#39;Positive&#39; Class : yes             
 ## </code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">roc_rp$auc</code></pre></div>
-<pre><code>## Area under the curve: 0.8061</code></pre>
-<p>here Area under the curve (AUC) is 0.8060541</p>
+<pre><code>## Area under the curve: 0.8062</code></pre>
+<p>here Area under the curve (AUC) is 0.8062032</p>
 </div>
 </div>
 <div id="rf" class="section level2">
@@ -715,17 +707,50 @@ res_rf$model$finalModel
 <span class="kw">save</span>(res_rf, <span class="dt">file =</span> <span class="st">&quot;Rdata/res_rf.RData&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">load</span>(<span class="st">&quot;Rdata/res_rf.RData&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## See how number of trees affects Error
-<span class="kw">plot</span>(res_rf$model$finalModel)
+<span class="co">#plot(res_rf$model$finalModel)</span>
 
 <span class="co"># ROC </span>
-roc_rf &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_rf)
-best.cut.off &lt;&lt;-<span class="st"> </span>roc_rf$best.cut.off
+roc_rf &lt;-<span class="st"> </span><span class="kw">make_ROC</span>(res_rf, df_train)</code></pre></div>
+<pre><code>## Area under the curve: 0.8367
+## Source: local data frame [2 x 4]
+## 
+##   pr_threshold     metrics     value    sumSS
+##          (dbl)       (chr)     (dbl)    (dbl)
+## 1        0.357 sensitivity 0.7219127 1.510355
+## 2        0.357 specificity 0.7884419 1.510355</code></pre>
+<p><img src="animal_shelter_classification_files/figure-html/unnamed-chunk-21-1.png" /><!-- --></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">best.cut.off &lt;&lt;-<span class="st"> </span>roc_rf$best.cut.off
 trainPred &lt;&lt;-<span class="st"> </span>roc_rf$trainPred
 
 <span class="kw">confusionMatrix</span>(<span class="kw">ifelse</span>(trainPred[, <span class="st">&quot;yes&quot;</span>] &gt;<span class="st"> </span>best.cut.off, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;no&quot;</span>), 
-                res_rf$train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)
-
-<span class="co">#here Area under the curve (AUC) is `r roc_rf$auc`</span></code></pre></div>
+                df_train$outcome, <span class="dt">positive =</span> <span class="st">&quot;yes&quot;</span>)</code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction    no   yes
+##        no  10055  2396
+##        yes  2698  6220
+##                                           
+##                Accuracy : 0.7616          
+##                  95% CI : (0.7558, 0.7673)
+##     No Information Rate : 0.5968          
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.5075          
+##  Mcnemar&#39;s Test P-Value : 2.472e-05       
+##                                           
+##             Sensitivity : 0.7219          
+##             Specificity : 0.7884          
+##          Pos Pred Value : 0.6975          
+##          Neg Pred Value : 0.8076          
+##              Prevalence : 0.4032          
+##          Detection Rate : 0.2911          
+##    Detection Prevalence : 0.4173          
+##       Balanced Accuracy : 0.7552          
+##                                           
+##        &#39;Positive&#39; Class : yes             
+## </code></pre>
+<p>here Area under the curve (AUC) is 0.8367321</p>
 </div>
 </div>
 <div id="other-models-to-consider" class="section level2">
@@ -770,7 +795,7 @@ trainPred &lt;&lt;-<span class="st"> </span>roc_rf$trainPred
         </div>
       </div>
 <a href="clean-data-and-do-feature-engineering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="training-a-model-for-all-classes.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="training-a-model-for-all-classes-try-it-yourselves.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

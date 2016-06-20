@@ -13,10 +13,6 @@ knitr::opts_chunk$set(echo = TRUE, eval = T)
 DF_orig <- read_csv("data/animal/train.csv.gz")
 #View(DF_orig[1, ])
 subDF <- DF_orig[1, ]
-#subDF$OutcomeType <- ""
-#subDF$OutcomeSubtype <- ""
-#subDF$AnimalID <- ""
-#subDF$DateTime <- ""
 
 #' ### Interactive editing, of not using Shiny
 #+
@@ -24,7 +20,6 @@ subDF <- DF_orig[1, ]
 is_str <- !sapply(subDF, is.numeric)
 subDF[, is_str] <-  subDF[, is_str] %>%
   mutate_each(funs(as.factor))
-
 # edit an entry interactivelly
 subDF <- edit(subDF)
 
@@ -43,10 +38,15 @@ DF_orig[nrow(DF_orig) +1 , ] <- subDF[1, ]
 
 source("scripts/making_features_4.R")
 
-DF_for_prep <- DF_binary
+x_data_predict <- DF_binary[nrow(DF_binary), ]
 
-for_pred = TRUE
-source("scripts/Pre_process_data.R")
-
-pred_adoption_prob <- predict(res_GLM$model, x_data_pred, type = "prob")
+# Preprocess with the prepared rules
+x_data_predict <- data.frame(predict(dv, x_data_predict))
+x_data_predict <- x_data_predict[,-highlyCorDescr]
+if(length(comboInfo$remove) > 0) 
+  x_data_predict <- x_data_predict[, -comboInfo$remove]
+#x_data_predict <- predict(preProcValues, x_data_predict)
+  
+pred_adoption_prob <- predict(res_GLM$model, x_data_predict, type = "prob")
 pred_adoption_prob
+pred_adoption_prob$yes

@@ -122,8 +122,8 @@ knitr::spin_child("scripts/make_ROC_curve_4.R")
 
 ```{r}
 roc_GLM <- make_ROC(res_GLM, df_train)
-best.cut.off <<- roc_GLM$best.cut.off
-trainPred <<- roc_GLM$trainPred
+best.cut.off <- roc_GLM$best.cut.off
+trainPred <- roc_GLM$trainPred
 ```
 
 here Area under the curve (AUC) is `r roc_GLM$auc` 
@@ -211,26 +211,26 @@ save(res_rf, file = "Rdata/res_rf.RData")
 
 ```
 
-```{r, eval = F}
+```{r, eval = T}
 load("Rdata/res_rf.RData")
 ```
 
 
-```{r, eval = F}
+```{r, eval = T}
 ## See how number of trees affects Error
-plot(res_rf$model$finalModel)
+#plot(res_rf$model$finalModel)
 
 # ROC 
-roc_rf <- make_ROC(res_rf)
+roc_rf <- make_ROC(res_rf, df_train)
 best.cut.off <<- roc_rf$best.cut.off
 trainPred <<- roc_rf$trainPred
 
 confusionMatrix(ifelse(trainPred[, "yes"] > best.cut.off, "yes", "no"), 
-                res_rf$train$outcome, positive = "yes")
+                df_train$outcome, positive = "yes")
 
-#here Area under the curve (AUC) is `r roc_rf$auc`
 ```
 
+here Area under the curve (AUC) is `r roc_rf$auc`
 
 ## Other models to consider
 
@@ -265,7 +265,7 @@ one-vs-all (all-pair) approach for many classes
 GAM - general additive models.
 Caret - combining models. ansamble models
 
-# Training a model for all classes
+# Training a model for all classes - try it yourselves
 
 ### rpart
 
@@ -274,7 +274,7 @@ use_formula = TRUE
 DF_for_prep <- DF_features # use all outcomes
 ```
 
-```{r, eval = T}
+```{r, eval = F}
 knitr::spin_child("scripts/Pre_process_data.R")  
 ```
 

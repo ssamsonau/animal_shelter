@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="training-a-model-for-all-classes.html">
+<link rel="prev" href="training-a-model-for-all-classes-try-it-yourselves.html">
 
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -152,17 +152,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.7.4" data-path="traning-and-evaluating-a-model.html"><a href="traning-and-evaluating-a-model.html#combining-different-models."><i class="fa fa-check"></i><b>3.7.4</b> Combining different models.</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html"><i class="fa fa-check"></i><b>4</b> Training a model for all classes</a><ul>
-<li class="chapter" data-level="4.0.1" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#rpart-1"><i class="fa fa-check"></i><b>4.0.1</b> rpart</a></li>
-<li class="chapter" data-level="4.0.2" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#creating-dummy-variables-1"><i class="fa fa-check"></i><b>4.0.2</b> Creating dummy variables</a></li>
-<li class="chapter" data-level="4.0.3" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#deal-with-na-1"><i class="fa fa-check"></i><b>4.0.3</b> Deal with NA</a></li>
-<li class="chapter" data-level="4.0.4" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#split-data-to-x-and-y-1"><i class="fa fa-check"></i><b>4.0.4</b> Split data to x and y</a></li>
-<li class="chapter" data-level="4.0.5" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#create-dummmy-variables-1"><i class="fa fa-check"></i><b>4.0.5</b> Create dummmy variables</a></li>
-<li class="chapter" data-level="4.0.6" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#check-for-correlated-predictors-1"><i class="fa fa-check"></i><b>4.0.6</b> Check for correlated predictors</a></li>
-<li class="chapter" data-level="4.0.7" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#check-for-linear-dependencies-1"><i class="fa fa-check"></i><b>4.0.7</b> Check for linear dependencies</a></li>
-<li class="chapter" data-level="4.0.8" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#split-data-to-train-and-test-set-1"><i class="fa fa-check"></i><b>4.0.8</b> Split data to train and test set</a></li>
-<li class="chapter" data-level="4.0.9" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#if-needed-center-and-scale-or-range-0-to-1-1"><i class="fa fa-check"></i><b>4.0.9</b> If needed Center and scale, or range (0 to 1)</a></li>
-<li class="chapter" data-level="4.0.10" data-path="training-a-model-for-all-classes.html"><a href="training-a-model-for-all-classes.html#rf-1"><i class="fa fa-check"></i><b>4.0.10</b> rf</a></li>
+<li class="chapter" data-level="4" data-path="training-a-model-for-all-classes-try-it-yourselves.html"><a href="training-a-model-for-all-classes-try-it-yourselves.html"><i class="fa fa-check"></i><b>4</b> Training a model for all classes - try it yourselves</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="training-a-model-for-all-classes-try-it-yourselves.html"><a href="training-a-model-for-all-classes-try-it-yourselves.html#rpart-1"><i class="fa fa-check"></i><b>4.0.1</b> rpart</a></li>
+<li class="chapter" data-level="4.0.2" data-path="training-a-model-for-all-classes-try-it-yourselves.html"><a href="training-a-model-for-all-classes-try-it-yourselves.html#rf-1"><i class="fa fa-check"></i><b>4.0.2</b> rf</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="sample-prediction.html"><a href="sample-prediction.html"><i class="fa fa-check"></i><b>5</b> Sample prediction</a><ul>
 <li class="chapter" data-level="5.0.1" data-path="sample-prediction.html"><a href="sample-prediction.html#interactive-editing-of-not-using-shiny"><i class="fa fa-check"></i><b>5.0.1</b> Interactive editing, of not using Shiny</a></li>
@@ -194,26 +186,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co">#` Here you can include Rshiny app</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DF_orig &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/animal/train.csv.gz&quot;</span>)
 <span class="co">#View(DF_orig[1, ])</span>
-subDF &lt;-<span class="st"> </span>DF_orig[<span class="dv">1</span>, ]
-<span class="co">#subDF$OutcomeType &lt;- &quot;&quot;</span>
-<span class="co">#subDF$OutcomeSubtype &lt;- &quot;&quot;</span>
-<span class="co">#subDF$AnimalID &lt;- &quot;&quot;</span>
-<span class="co">#subDF$DateTime &lt;- &quot;&quot;</span></code></pre></div>
+subDF &lt;-<span class="st"> </span>DF_orig[<span class="dv">1</span>, ]</code></pre></div>
 <div id="interactive-editing-of-not-using-shiny" class="section level3">
 <h3><span class="header-section-number">5.0.1</span> Interactive editing, of not using Shiny</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># prepare data frame for interactive editing (only numeric and factors are allowed)</span>
 is_str &lt;-<span class="st"> </span>!<span class="kw">sapply</span>(subDF, is.numeric)
 subDF[, is_str] &lt;-<span class="st">  </span>subDF[, is_str] %&gt;%
 <span class="st">  </span><span class="kw">mutate_each</span>(<span class="kw">funs</span>(as.factor))
-
 <span class="co"># edit an entry interactivelly</span>
 subDF &lt;-<span class="st"> </span><span class="kw">edit</span>(subDF)</code></pre></div>
-<pre><code>## Warning in edit.data.frame(subDF): added factor levels in &#39;AnimalType&#39;</code></pre>
 <p>Entered record</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">subDF %&gt;%
 <span class="st">  </span><span class="kw">select</span>(Name, AnimalType, SexuponOutcome, AgeuponOutcome, Breed, Color)</code></pre></div>
 <pre><code>##      Name AnimalType SexuponOutcome AgeuponOutcome                 Breed
-## 1 Hambone        Cat  Neutered Male         1 year Shetland Sheepdog Mix
+## 1 Hambone        Dog  Neutered Male         1 year Shetland Sheepdog Mix
 ##         Color
 ## 1 Brown/White</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#convert back to string</span>
@@ -311,18 +297,21 @@ DF_orig[<span class="kw">nrow</span>(DF_orig) +<span class="dv">1</span> , ] &lt
 ##  $ AgeOnOutcome12: num  18.97 18.97 26.83 4.58 26.83 ...
 ##  $ AgeOnOutcome3 : num  4.67e+07 4.67e+07 3.73e+08 9.26e+03 3.73e+08 ...
 ##  $ AgeOnOutcome13: num  7.11 7.11 8.96 2.76 8.96 ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DF_for_prep &lt;-<span class="st"> </span>DF_binary
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x_data_predict &lt;-<span class="st"> </span>DF_binary[<span class="kw">nrow</span>(DF_binary), ]
 
-for_pred =<span class="st"> </span><span class="ot">TRUE</span>
-<span class="kw">source</span>(<span class="st">&quot;scripts/Pre_process_data.R&quot;</span>)</code></pre></div>
-<pre><code>## New DF dimensions 
-##  21369 42 
-## n/p ratio is 
-##  508.7857</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred_adoption_prob &lt;-<span class="st"> </span><span class="kw">predict</span>(res_GLM$model, x_data_pred, <span class="dt">type =</span> <span class="st">&quot;prob&quot;</span>)
+<span class="co"># Preprocess with the prepared rules</span>
+x_data_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">predict</span>(dv, x_data_predict))
+x_data_predict &lt;-<span class="st"> </span>x_data_predict[,-highlyCorDescr]
+if(<span class="kw">length</span>(comboInfo$remove) &gt;<span class="st"> </span><span class="dv">0</span>) 
+  x_data_predict &lt;-<span class="st"> </span>x_data_predict[, -comboInfo$remove]
+<span class="co">#x_data_predict &lt;- predict(preProcValues, x_data_predict)</span>
+  
+pred_adoption_prob &lt;-<span class="st"> </span><span class="kw">predict</span>(res_GLM$model, x_data_predict, <span class="dt">type =</span> <span class="st">&quot;prob&quot;</span>)
 pred_adoption_prob</code></pre></div>
-<pre><code>##              no       yes
-## 26711 0.4614327 0.5385673</code></pre>
+<pre><code>##          no       yes
+## 1 0.4553696 0.5446304</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred_adoption_prob$yes</code></pre></div>
+<pre><code>## [1] 0.5446304</code></pre>
 </div>
 </div>
             </section>
@@ -330,7 +319,7 @@ pred_adoption_prob</code></pre></div>
           </div>
         </div>
       </div>
-<a href="training-a-model-for-all-classes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="training-a-model-for-all-classes-try-it-yourselves.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
