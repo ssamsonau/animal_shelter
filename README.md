@@ -2,7 +2,7 @@
 
 An example project created for one of the classes in "Essentials of Data Science" training program. 
 
-The project is based on Kaggle competition [Shelter Animal Outcomes)[https://www.kaggle.com/c/shelter-animal-outcomes]
+The project is based on Kaggle competition [Shelter Animal Outcomes](https://www.kaggle.com/c/shelter-animal-outcomes)
 
 The main idea of this projects is to demonstrate various techniques working together. It is a "first draft" type of projects, providing a starting point upon which one can improve.
 
